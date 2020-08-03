@@ -233,19 +233,7 @@ int main(int argc, const char *argv[]) {
   if (best_distance == -1 || best_distance > 3) {
     cerr << command << ": command not found" << endl;
   } else if (best_distance == 0) {
-    cerr << "The program " << command << " is not installed. Install it by executing:" << endl;
-    for (it=package_map.begin(); it!=package_map.end(); ++it) {
-      cerr << " pkg install " << it->first;
-      if (it->second.repository != "" &&
-          !file_exists(sources_prefix + it->second.repository + ".list")) {
-        cerr << ", after running pkg in " << it->second.repository << "-repo" << endl;
-      } else {
-        cerr << endl;
-      }
-      if (next(it) != package_map.end()) {
-        cerr << "or" << endl;
-      }
-    }
+    cerr << "The program " << command << " is not currently supported. You can join our community to suggest us." << endl;
   } else {
     cerr << "No command " << command << " found, did you mean:" << endl;
     for (it=package_map.begin(); it!=package_map.end(); ++it) {
